@@ -89,7 +89,12 @@
                         :style="{ width: getPowerPercentage() + '%' }"></div>
                     </div>
                     <p class="text-sm text-gray-600 mt-1">
-                      Poder actual: {{ getPowerPercentage().toFixed(1) }}%
+                      Poder actual: 
+                      {{
+                        isNaN(getPowerPercentage()) 
+                          ? 'desconocido' 
+                          : getPowerPercentage().toFixed(1) + '%'
+                      }}
                     </p>
                   </div>
                 </div>
@@ -206,7 +211,7 @@ const formatDate = (dateString) => {
 
 const getPowerPercentage = () => {
   if (!personaje.value?.ki || !personaje.value?.maxKi) return 0
-  return (parseInt(personaje.value.ki) / parseInt(personaje.value.maxKi)) * 100
+  return (parseInt(personaje.value.ki) / parseInt(personaje.value.maxKi)) * 100 
 }
 
 const getTransformationsList = () => {
