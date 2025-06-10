@@ -2,7 +2,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   const token = useCookie('auth-token')
 
   const apiFetch = $fetch.create({
-    baseURL: 'https://api.tuservidor.com', // Cambia esto por tu URL real
+    baseURL: 'https://localhost:8000', // Cambia esto por tu URL real
     headers: token.value
       ? { Authorization: `Bearer ${token.value}` }
       : {},

@@ -19,3 +19,8 @@ export const useApi = () => {
 
     return { apiFetch }
 }
+
+/* 
+const { apiFetch } = useApi()
+const user = await apiFetch('/api/user')
+*/
